@@ -1,0 +1,69 @@
+/* input text */
+input[type="text"].placeholdersjs             ,textarea.placeholdersjs { color: #b1b1b1; }                // ie
+input[type="text"]:-ms-input-placeholder      ,textarea:-ms-input-placeholder         { color: #b1b1b1; } // Internet Explorer 10 이상에 적용
+input[type="text"]::-webkit-input-placeholder ,textarea::-webkit-input-placeholder    { color: #b1b1b1; } //  Webkit, Blink, Edge에 적용
+input[type="text"]::-moz-placeholder          ,textarea::-moz-placeholder             { color: #b1b1b1; } // Mozilla Firefox 4 부터 18에 적용
+
+
+input[type="text"] {
+    width: 100%; height: $formH; padding: 8px 25px 8px 12px;
+    font-size: 16px; vertical-align: middle;
+    border: 1px solid $lineC_d; outline: none;
+}
+input[type="text"]:focus { border-color: $lineC_f; }
+
+
+/* ========================  input radio */
+.trp.radio-box { position: relative; display: inline-block; /* padding-left: 27px;  */ min-height: 20px;
+    label { display: inline-block; height: 20px; }
+    em { display: inline-block; height: 20px;    text-indent: 0px; }
+    input[type="radio"] { position: absolute; bottom:0; left: 0; /*  width:100%; */ width: 20px; height: 20px; margin: 0; padding: 0;  opacity: 0; filter: alpha(opacity=0);  }    
+    input[type="radio"] + i {/*  position: absolute; top:0; left: 0;  */display: inline-block; vertical-align: middle;  }
+    input[type="radio"] + i:after { display: block; content: '';  @include sp_form($radio-off); }
+    input[type="radio"]:checked + i:after {  @include sp_form($radio-on); }
+}
+.trp.radio-box.re { 
+    label { display: inline-block; height: 20px; vertical-align: middle;  text-indent: 0px; }
+    input[type="radio"] + i { position: relative;  }
+}
+
+
+/* ========================  input checkbox */
+.trp.checkbox-box { position: relative; display: inline-block; /* padding-left: 27px; */ min-height: 20px;
+    label { display: inline-block; height: 20px;   }
+    em { display: inline-block; height: 20px;     text-indent: 0px;}
+    input[type="checkbox"] { position: absolute; bottom:0; left: 0;  /*  width:100%; */ width: 20px; height: 20px; margin: 0; padding: 0;  opacity: 0; filter: alpha(opacity=0); z-index: 1; }    
+    input[type="checkbox"] + i { /* position: absolute; top:0; left: 0; */ display: inline-block; vertical-align: middle;  }
+    input[type="checkbox"] + i:after { display: block; content: '';  @include sp_form($checkbox-off); }
+    input[type="checkbox"]:checked + i:after {  @include sp_form($checkbox-on); }
+}
+.trp.checkbox-box.re {
+    label { display: inline-block; height: 20px; text-indent: 0px; }
+    input[type="checkbox"] + i { position: relative;  }
+}
+
+
+
+/* select */
+.select2Basic {  }
+.select2-container { height: $formH;}
+.select2-container .select2-selection--single { height: $formH;}
+.select2-container--default .select2-selection--single {
+    border: 1px solid $lineC_d;;
+    border-radius: 0px; }
+.select2-container--default .select2-selection--single .select2-selection__rendered { line-height: $formH; }
+.select2-container--default .select2-selection--single .select2-selection__arrow { height: $formH - 2px;}
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    -webkit-transition: transform 0.5s;
+    -moz-transition: transform 0.5s;
+    -o-transition: transform 0.5s;
+    transition: transform 0.5s;
+    }
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+    border-color: #888 transparent transparent transparent;
+    border-width: 5px 4px 0 4px;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);}
